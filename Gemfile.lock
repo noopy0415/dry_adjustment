@@ -219,10 +219,7 @@ DEPENDENCIES
   pg (~> 0.18)
   puma (~> 3.11)
   rails (= 5.2.0)
-<<<<<<< HEAD
-=======
   rails_12factor
->>>>>>> f59d110f6035744cfa96658b3bb761b7006332fa
   sass-rails (~> 5.0)
   selenium-webdriver
   spring
