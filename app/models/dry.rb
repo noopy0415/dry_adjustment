@@ -1,0 +1,2 @@
+class Dry < ApplicationRecord
+end

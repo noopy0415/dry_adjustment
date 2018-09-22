@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  task_id: 1
+  dry_id: 1
+  init_moist: 1.5
+  dry_condition1: 1
+  dry_condition2: 1
+  dry_condition3: 1
+  dry_condition4: 1
+  dry_condition5: 1
+  dry_condition6: 1
+
+two:
+  task_id: 1
+  dry_id: 1
+  init_moist: 1.5
+  dry_condition1: 1
+  dry_condition2: 1
+  dry_condition3: 1
+  dry_condition4: 1
+  dry_condition5: 1
+  dry_condition6: 1
