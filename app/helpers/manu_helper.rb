@@ -1,0 +1,2 @@
+module ManuHelper
+end

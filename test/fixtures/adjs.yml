@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  task_id: 1
+  container1: 1
+  container2: 1
+  bag0: 1.5
+  bag1: 1
+  bag2: 1
+  bag3: 1
+  bag4: 1
+  bag5: 1
+  adj_note: MyText
+
+two:
+  task_id: 1
+  container1: 1
+  container2: 1
+  bag0: 1.5
+  bag1: 1
+  bag2: 1
+  bag3: 1
+  bag4: 1
+  bag5: 1
+  adj_note: MyText

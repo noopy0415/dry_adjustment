@@ -1,0 +1,2 @@
+class Adj < ApplicationRecord
+end
