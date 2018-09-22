@@ -5,7 +5,7 @@ class CreateTasks < ActiveRecord::Migration[5.2]
       t.string :req_user_name
       t.string :req_valiety
       t.text :task_note
-
+      t.boolean :task_act
       t.timestamps
     end
   end

@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2018_09_22_064745) do
     t.string "req_user_name"
     t.string "req_valiety"
     t.text "task_note"
+    t.boolean "task_act"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
