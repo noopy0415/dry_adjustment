@@ -1,2 +1,23 @@
-<h1>Tasks#index</h1>
-<p>Find me in app/views/tasks/index.html.erb</p>
+<%= button_to "登録", new_task_path, method: :get %>
+<table class="table table-borderd table-striped">
+  <thead>
+    <tr>
+      <th>氏名</th>
+      <th>品種</th>
+      <th>内容</th>
+      <th>出荷</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tasks.each do |task| %>
+      <% if task.task_act %>
+        <tr>
+          <td><%= task.req_user_name  %></td>
+          <td><%= task.req_valiety  %></td>
+          <td><%= task.task_note  %></td>
+          <td><%= link_to '出荷', task, class: "btn btn-default btn-lg", method: :patch %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
