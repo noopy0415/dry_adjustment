@@ -5,7 +5,7 @@
       <th>氏名</th>
       <th>品種</th>
       <th>内容</th>
-      <th>出荷</th>
+      <th>リンク</th>
     </tr>
   </thead>
   <tbody>
@@ -15,7 +15,7 @@
           <td><%= task.req_user_name  %></td>
           <td><%= task.req_valiety  %></td>
           <td><%= task.task_note  %></td>
-          <td><%= link_to '出荷', task, class: "btn btn-default btn-lg", method: :patch %></td>
+          <td><%= link_to '詳細', task, class: "btn btn-default" %></td>
         </tr>
       <% end %>
     <% end %>

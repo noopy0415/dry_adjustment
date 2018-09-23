@@ -7,13 +7,14 @@
   </div>
   <div>
     <label>品種：</label>
-    <%= f.text_field :req_valiety, class:"form-control" %>
+    <%= f.text_field :req_valiety,   class:"form-control" %>
   </div>
   <div>
     <label>メモ：</label>
-    <%= f.text_area :task_note, class:"form-control" %>
+    <%= f.text_area  :task_note,     class:"form-control" %>
   </div>
+
   <%= f.hidden_field :task_act, value:true %>
 
-  <%= f.submit "登録" %>
+  <%= f.submit %>
 <% end %>

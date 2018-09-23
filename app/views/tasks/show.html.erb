@@ -1,2 +1,27 @@
-<h1>Tasks#show</h1>
-<p>Find me in app/views/tasks/show.html.erb</p>
+<center>
+  <div>
+    <label>依頼者：</label>
+    <%= @task.req_user_name%>
+  </div>
+  <div>
+    <label>品種：</label>
+    <%= @task.req_valiety %>
+  </div>
+  <div>
+    <label>メモ：</label>
+    <%= @task.task_note %>
+  </div>
+  
+  <div class="col-sm-12 col-md-4">
+    <%= link_to "出荷", task_path,
+        class: "btn btn-default btn-success btn-lg", method: :patch %>
+  </div>
+  <div class="col-sm-12 col-md-4">
+    <%= link_to "編集", edit_task_path(@task),
+        class: "btn btn-default btn-primary btn-lg" %>
+  </div>
+  <div class="col-sm-12 col-md-4">
+    <%= link_to "戻る", tasks_path,
+        class: "btn btn-default btn-primary btn-lg" %>
+  </div>
+</center>
