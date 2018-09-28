@@ -1,2 +1,28 @@
-<h1>Adjs#index</h1>
-<p>Find me in app/views/adjs/index.html.erb</p>
+<% @tasks.each do |task| %>
+  <% if task.task_act %>
+    <%= link_to '調整', new_adj_path(task, task.id), class: "btn btn-default" %>
+    <%= task.req_user_name  %>
+    <%= task.req_valiety  %>
+
+    <table class="table table-borderd table-hover">
+      <thead>
+        <tr>
+          <th>業者</th>
+          <th width=25%>フレコン</th>
+          <th width=25%>紙袋</th>
+          <th width=25%>端量</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% task.adjs.each do |adj| %>
+          <tr>
+            <th><%= link_to adj.trader.name, edit_adj_path(adj) %></th>
+            <th><%= (adj.container_shipment && adj.container) ? (link_to adj.container, container_shipment_adj_path(adj),data:{confirm:"出荷しますか？"}) : adj.container %></th>
+            <th><%= (adj.bag_shipment && adj.bag) ? (link_to adj.bag, bag_shipment_adj_path(adj)) : adj.bag %></th>
+            <th><%= (adj.half_shipment && adj.half) ? (link_to adj.half, half_shipment_adj_path(adj)) : adj.half %></th>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+<% end %>

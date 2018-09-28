@@ -10,33 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_22_064745) do
+ActiveRecord::Schema.define(version: 2018_09_27_091054) do
 
   create_table "adjs", force: :cascade do |t|
     t.integer "task_id"
-    t.integer "container1"
-    t.integer "container2"
-    t.float "bag0"
-    t.integer "bag1"
-    t.integer "bag2"
-    t.integer "bag3"
-    t.integer "bag4"
-    t.integer "bag5"
+    t.integer "trader_id"
+    t.integer "container"
+    t.boolean "container_shipment"
+    t.integer "bag"
+    t.boolean "bag_shipment"
+    t.float "half"
+    t.boolean "half_shipment"
     t.text "adj_note"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "driers", force: :cascade do |t|
+    t.string "name"
+    t.float "scale"
+    t.text "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "dries", force: :cascade do |t|
     t.integer "task_id"
-    t.integer "dry_id"
+    t.integer "drier_id"
     t.float "init_moist"
-    t.integer "dry_condition1"
-    t.integer "dry_condition2"
-    t.integer "dry_condition3"
-    t.integer "dry_condition4"
-    t.integer "dry_condition5"
-    t.integer "dry_condition6"
+    t.float "dry_condition1"
+    t.float "dry_condition2"
+    t.float "dry_condition3"
+    t.float "dry_condition4"
+    t.float "dry_condition5"
+    t.float "dry_condition6"
     t.text "dry_note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -48,6 +55,13 @@ ActiveRecord::Schema.define(version: 2018_09_22_064745) do
     t.string "req_valiety"
     t.text "task_note"
     t.boolean "task_act"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "traders", force: :cascade do |t|
+    t.string "name"
+    t.text "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
