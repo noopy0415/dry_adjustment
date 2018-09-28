@@ -4,18 +4,16 @@
     <tr>
       <th>氏名</th>
       <th>品種</th>
-      <th>内容</th>
-      <th>リンク</th>
     </tr>
   </thead>
   <tbody>
     <% @tasks.each do |task| %>
       <% if task.task_act %>
         <tr>
-          <td><%= task.req_user_name  %></td>
+          <td><%= link_to task.req_user_name, task  %></td>
           <td><%= task.req_valiety  %></td>
-          <td><%= task.task_note  %></td>
-          <td><%= link_to '詳細', task, class: "btn btn-default" %></td>
+          <td>乾燥中</td>
+          <td>調整中</td>
         </tr>
       <% end %>
     <% end %>

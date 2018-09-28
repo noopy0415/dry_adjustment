@@ -1,20 +1,22 @@
 <%= form_with model: @task, local: true do |f| %>
+  <%= render partial: 'layouts/errors', locals: { model: @task } %>
+
   <%= f.hidden_field :user_id, value:1 %>
 
   <div>
-    <label>依頼者：</label>
+    <%= f.label :req_user_name %>
     <%= f.text_field :req_user_name, class:"form-control" %>
   </div>
   <div>
-    <label>品種：</label>
+    <%= f.label :req_valiety %>
     <%= f.text_field :req_valiety,   class:"form-control" %>
   </div>
   <div>
-    <label>メモ：</label>
+    <%= f.label :task_note %>
     <%= f.text_area  :task_note,     class:"form-control" %>
   </div>
 
   <%= f.hidden_field :task_act, value:true %>
 
-  <%= f.submit %>
+  <%= f.submit class: "btn btn-default"%>
 <% end %>

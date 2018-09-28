@@ -1,2 +1,42 @@
-<h1>Dries#show</h1>
-<p>Find me in app/views/dries/show.html.erb</p>
+<div class="form-horizontal">
+  <div class="form-group">
+    <label class="col-xs-4 control-label">依頼者：</label>
+    <div class="col-xs-8">
+      <%= @dry.task.req_user_name %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-xs-4 control-label">品種：</label>
+    <div class="col-xs-8">
+      <%= @dry.task.req_valiety %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-xs-4 control-label">乾燥機：</label>
+    <div class="col-xs-8">
+      <%= @dry.drier.name %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-xs-4 control-label">初期水分</label>
+    <div class="col-xs-8">
+      <%= @dry.init_moist %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-xs-4 control-label">乾燥メモ</label>
+    <div class="col-xs-8">
+      <%= @dry.dry_note %>
+    </div>
+  </div>
+</div>
+<div class="form-group">
+  <div class="col-xs-4 control-label"></div>
+  <div class="col-xs-8">
+    <%= link_to '修正', edit_dry_path(@dry), class:"btn btn-default" %>
+  </div>
+</div>

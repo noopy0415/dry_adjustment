@@ -1,21 +1,8 @@
 class TasksController < ApplicationController
+
   def index
     @page = "受入"
     @tasks = Task.all
-  end
-
-  def show
-    @task = Task.find(params[:id])
-  end
-
-  def edit
-    @page = "受入編集"
-  end
-
-  def update
-    @task = Task.find(params[:id])
-    @task.update_attribute(:task_act, false)
-    redirect_to tasks_path
   end
 
   def new
@@ -30,6 +17,22 @@ class TasksController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    @page = "受入詳細"
+    @task = Task.find(params[:id])
+  end
+
+  def edit
+    @page = "受入編集"
+    @task = Task.find(params[:id])
+  end
+
+  def update
+    @task = Task.find(params[:id])
+    @task.update_attribute(:task_act, false)
+    redirect_to tasks_path
   end
 
   def destroy

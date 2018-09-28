@@ -1,2 +1,32 @@
-<h1>Dries#index</h1>
-<p>Find me in app/views/dries/index.html.erb</p>
+<table class="table table-borderd table-striped">
+  <thead>
+    <tr>
+      <th>開始</th>
+      <th>氏名</th>
+      <th>品種</th>
+      <th>乾燥1</th>
+      <th>乾燥2</th>
+      <th>乾燥3</th>
+      <th>乾燥4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tasks.each do |task| %>
+      <% if task.task_act %>
+        <tr>
+          <% if task.dries.count < 4 %>
+            <td><%= link_to '乾燥', new_dry_path(task, task.id), class: "btn btn-default" %></td>
+          <% else %>
+            <td><%= link_to '乾燥', new_dry_path(task, task.id), class: "btn btn-default", disabled: true %></td>
+          <% end %>
+          <td><%= task.req_user_name  %></td>
+          <td><%= task.req_valiety  %></td>
+          <% task.dries.each do |d| %>
+            <td><%= link_to d.drier.name, dry_path(d) %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+
+</table>
