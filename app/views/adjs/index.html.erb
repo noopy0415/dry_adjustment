@@ -15,12 +15,14 @@
       </thead>
       <tbody>
         <% task.adjs.each do |adj| %>
-          <tr>
-            <th><%= link_to adj.trader.name, edit_adj_path(adj) %></th>
-            <th><%= (adj.container_shipment && adj.container) ? (link_to adj.container, container_shipment_adj_path(adj),data:{confirm:"出荷しますか？"}) : adj.container %></th>
-            <th><%= (adj.bag_shipment && adj.bag) ? (link_to adj.bag, bag_shipment_adj_path(adj)) : adj.bag %></th>
-            <th><%= (adj.half_shipment && adj.half) ? (link_to adj.half, half_shipment_adj_path(adj)) : adj.half %></th>
-          </tr>
+          <% if adj.container_shipment || adj.bag_shipment || adj.half_shipment %>
+            <tr>
+              <th><%= link_to adj.trader.name, edit_adj_path(adj) %></th>
+              <th><%= (adj.container_shipment && adj.container) ? (link_to adj.container, container_shipment_adj_path(adj),data:{confirm:"出荷しますか？"}) : adj.container %></th>
+              <th><%= (adj.bag_shipment && adj.bag) ? (link_to adj.bag, bag_shipment_adj_path(adj),data:{confirm:"出荷しますか？"}) : adj.bag %></th>
+              <th><%= (adj.half_shipment && adj.half) ? (link_to adj.half, half_shipment_adj_path(adj),data:{confirm:"出荷しますか？"}) : adj.half %></th>
+            </tr>
+          <% end %>
         <% end %>
       </tbody>
     </table>

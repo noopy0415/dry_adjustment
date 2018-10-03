@@ -9,13 +9,19 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <%= render partial: 'layouts/script' %>
   </head>
 
   <body>
     <div class="container">
       <%= render partial: 'layouts/header' %>
-      <%= yield %>
+      <%= render partial: 'layouts/errors' %>
+      <row>
+        <div class="col-sm-8 col-sm-offset-2">
+          <h2><%= @page %></h2>
+          <%= yield %>
+        </div>
+      </row>
     </div>
   </body>
 </html>

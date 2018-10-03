@@ -1,4 +1,6 @@
 class AdjsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @page = "調整"
     @adjs = Adj.all
