@@ -2,35 +2,36 @@
   <%= render partial: 'layouts/errors', locals: { model: @dry } %>
 
   <%= f.hidden_field :task_id %>
+
   <div class="form-group">
-    <%= f.label :req_user_name, class: "col-xs-4 control-label" %>
-    <div class="col-xs-8">
+    <%= f.label :req_user_name, class: "col-sm-3 control-label" %>
+    <div class="col-sm-9">
       <%= @dry.task.req_user_name %>
     </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :req_valiety, class: "col-xs-4 control-label" %>
-    <div class="col-xs-8">
+    <%= f.label :req_valiety, class: "col-sm-3 control-label" %>
+    <div class="col-sm-9">
       <%= @dry.task.req_valiety %>
     </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :drier_id, class: "col-xs-4 control-label" %>
-    <div class="col-xs-8">
+    <%= f.label :drier_id, class: "col-sm-3 control-label" %>
+    <div class="col-sm-9">
     <% if @page == "乾燥修正" %>
       <%= f.hidden_field :drier_id %>
       <%= @dry.drier.name %>
     <% else %>
-      <%= f.select(:drier_id, [['80石',1],['40石',2],['65石①',3],['65石②',4]]) %>
+      <%= f.collection_select(:drier_id, Drier.all, :id, :name, { include_blank: "乾燥機を選択してください" }, class:"form-control") %>
     <% end %>
     </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :init_moist, class: "col-xs-4 control-label" %>
-    <div class="col-xs-8">
+    <%= f.label :init_moist, class: "col-sm-3 control-label" %>
+    <div class="col-sm-9">
       <%= f.number_field :init_moist, min: 14.0, max: 30, step: 0.1, class:"form-control" %>
     </div>
   </div>
@@ -43,15 +44,23 @@
   <%= f.hidden_field :dry_condition6 %>
 
   <div class="form-group">
-    <%= f.label :dry_note, class: "col-xs-4 control-label" %>
-    <div class="col-sm-8">
+    <%= f.label :dry_note, class: "col-sm-3 control-label" %>
+    <div class="col-sm-9">
       <%= f.text_area :dry_note, class:"form-control" %>
     </div>
   </div>
+
   <div class="form-group">
-    <div class="col-sm-4 control-label"></div>
-    <div class="col-sm-8">
-      <%= f.submit %>
+    <div class="col-sm-3 control-label"></div>
+    <div class="col-sm-9">
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-3 control-label"></div>
+    <div class="col-sm-9">
+      <%= link_to '戻る', root_path, class: "btn btn-default" %>
     </div>
   </div>
 <% end %>

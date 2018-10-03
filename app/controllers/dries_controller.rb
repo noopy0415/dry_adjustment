@@ -1,4 +1,6 @@
 class DriesController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @page = "乾燥"
     @dries = Dry.all
@@ -16,6 +18,7 @@ class DriesController < ApplicationController
     if @dry.save
       redirect_to dries_path
     else
+      flash.now[:alert] = @dry.errors.full_messages
       render :new
     end
   end
@@ -35,6 +38,7 @@ class DriesController < ApplicationController
     if @dry.update(dry_params)
       redirect_to dries_path
     else
+      flash.now[:alert] = @dry.errors.full_messages
       render :edit
     end
   end

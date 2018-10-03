@@ -2,30 +2,34 @@
   <%= render partial: 'layouts/errors', locals: { model: @adj } %>
 
   <%= f.hidden_field :task_id %>
+  <%= f.hidden_field :container_shipment, value: @adj.container_shipment %>
+  <%= f.hidden_field :bag_shipment, value: @adj.bag_shipment %>
+  <%= f.hidden_field :half_shipment, value: @adj.half_shipment %>
+
   <div class="form-group">
-    <label class="col-xs-4 control-label">依頼者：</label>
-    <div class="col-xs-8">
+    <label class="col-sm-3 control-label">依頼者：</label>
+    <div class="col-sm-9">
       <%= @adj.task.req_user_name %>
     </div>
   </div>
 
   <div class="form-group">
-    <label class="col-xs-4 control-label">品種：</label>
-    <div class="col-xs-8">
+    <label class="col-sm-3 control-label">品種：</label>
+    <div class="col-sm-9">
       <%= @adj.task.req_valiety %>
     </div>
   </div>
 
   <div class="form-group">
-    <label class="col-xs-4 control-label">業者：</label>
-    <div class="col-xs-8">
+    <label class="col-sm-3 control-label">業者：</label>
+    <div class="col-sm-9">
       <%= f.collection_select :trader_id, Trader.all, :id, :name , { include_blank: "会社を選択してください" },  { class: "form-control" } %>
     </div>
   </div>
 
   <div class="form-group">
-    <label class="col-xs-4 control-label">フレコン：</label>
-    <div class="col-xs-8">
+    <label class="col-sm-3 control-label">フレコン：</label>
+    <div class="col-sm-9">
       <% if @adj.container_shipment %>
         <%= f.number_field :container, class:"form-control" %>
       <% else %>
@@ -35,8 +39,8 @@
   </div>
 
   <div class="form-group">
-    <label class="col-xs-4 control-label">紙袋：</label>
-    <div class="col-xs-8">
+    <label class="col-sm-3 control-label">紙袋：</label>
+    <div class="col-sm-9">
       <% if @adj.bag_shipment %>
         <%= f.number_field :bag, class:"form-control" %>
       <% else %>
@@ -46,8 +50,8 @@
   </div>
 
   <div class="form-group">
-    <label class="col-xs-4 control-label">端量：</label>
-    <div class="col-xs-8">
+    <label class="col-sm-3 control-label">端量：</label>
+    <div class="col-sm-9">
       <% if @adj.half_shipment %>
         <%= f.number_field :half, class:"form-control" %>
       <% else %>
@@ -57,16 +61,23 @@
   </div>
 
   <div class="form-group">
-    <label class="col-sm-4 control-label">調整メモ</label>
-    <div class="col-sm-8">
+    <label class="col-sm-3 control-label">調整メモ</label>
+    <div class="col-sm-9">
       <%= f.text_area :adj_note, class:"form-control" %>
     </div>
   </div>
 
   <div class="form-group">
-    <div class="col-sm-4 control-label"></div>
-    <div class="col-sm-8">
-      <%= f.submit %>
+    <div class="col-sm-3 control-label"></div>
+    <div class="col-sm-9">
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-3 control-label"></div>
+    <div class="col-sm-9">
+      <%= link_to '戻る', root_path, class: "btn btn-default" %>
     </div>
   </div>
 <% end %>

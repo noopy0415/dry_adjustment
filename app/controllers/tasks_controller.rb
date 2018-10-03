@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     @page = "受入"
@@ -15,6 +16,8 @@ class TasksController < ApplicationController
     if @task.save
       redirect_to tasks_path
     else
+      flash.now[:alert] = @task.errors.full_messages
+      @page = "受入登録"
       render :new
     end
   end
@@ -31,8 +34,13 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find(params[:id])
-    @task.update_attribute(:task_act, false)
-    redirect_to tasks_path
+    if @task.update_attribute(:task_act, false)
+      redirect_to tasks_path
+    else
+      flash.now[:alert] = @task.errors.full_messages
+      @page = "受入編集"
+      render :edit
+    end
   end
 
   def destroy

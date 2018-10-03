@@ -3,10 +3,15 @@ ja:
   activerecord:
 # 下記を追加
     models:
+      user:
       task: "受入"
       dry: "乾燥"
       adj: "調整"
+      comment: "改善要求"
     attributes:
+      user:
+        name: "ニックネーム"
+        password: "パスワード"
       task:
         req_user_name: "依頼者"
         req_valiety: "品種"
@@ -17,6 +22,9 @@ ja:
         drier_id: "乾燥機"
         init_moist: "初期水分"
         dry_note: "メモ"
+      comment:
+        title: "題名"
+        body: "内容"
 # ここまで追加
 
     errors:

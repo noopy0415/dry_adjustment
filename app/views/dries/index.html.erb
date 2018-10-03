@@ -10,12 +10,13 @@
       <th>乾燥4</th>
     </tr>
   </thead>
+
   <tbody>
     <% @tasks.each do |task| %>
       <% if task.task_act %>
         <tr>
           <% if task.dries.count < 4 %>
-            <td><%= link_to '乾燥', new_dry_path(task, task.id), class: "btn btn-default" %></td>
+            <td><%= link_to '乾燥', new_dry_path(task, task.id), class: "btn btn-default", style: "text-orientation:upright;" %></td>
           <% else %>
             <td><%= link_to '乾燥', new_dry_path(task, task.id), class: "btn btn-default", disabled: true %></td>
           <% end %>
@@ -28,5 +29,11 @@
       <% end %>
     <% end %>
   </tbody>
-
 </table>
+
+<div class="form-group">
+  <div class="col-sm-3 control-label"></div>
+  <div class="col-sm-9">
+    <%= link_to '戻る', root_path, class: "btn btn-default" %>
+  </div>
+</div>
